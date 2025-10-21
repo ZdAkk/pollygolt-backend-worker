@@ -235,6 +235,14 @@ export default {
       });
     }
 
+    // Only process POST requests
+    if (method !== 'POST') {
+      return addCorsHeaders(new Response(JSON.stringify({ error: 'Method not allowed' }), { 
+        status: 405, 
+        headers: { 'Content-Type': 'application/json' } 
+      }));
+    }
+
     try {
       // Route to appropriate handler
       if (path === '/api/conversation/start' && method === 'POST') {
