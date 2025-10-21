@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "pollygolt-backend-worker",
+		"name": "Pollygolt Backend Worker API",
+		"description": "Collection for testing the multilingual AI chat worker endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Conversation Management",
+			"item": [
+				{
+					"name": "Start Conversation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/conversation/start",
+							"host": ["{{base_url}}"],
+							"path": ["api", "conversation", "start"]
+						},
+						"description": "Start a new conversation session"
+					},
+					"response": []
+				},
+				{
+					"name": "Send Message (Non-streaming)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sessionId\": \"{{session_id}}\",\n  \"message\": \"Hello, how are you?\",\n  \"targetLang\": \"en\",\n  \"temperature\": 0.3,\n  \"maxTokens\": 128\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/conversation/message",
+							"host": ["{{base_url}}"],
+							"path": ["api", "conversation", "message"]
+						},
+						"description": "Send a message and get AI response (non-streaming)"
+					},
+					"response": []
+				},
+				{
+					"name": "Send Message (Streaming)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sessionId\": \"{{session_id}}\",\n  \"message\": \"Tell me a story\",\n  \"targetLang\": \"en\",\n  \"temperature\": 0.7,\n  \"maxTokens\": 256\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/conversation/message/stream",
+							"host": ["{{base_url}}"],
+							"path": ["api", "conversation", "message", "stream"]
+						},
+						"description": "Send a message and get streaming AI response"
+					},
+					"response": []
+				}
+			],
+			"description": "Conversation management and messaging endpoints"
+		},
+		{
+			"name": "Language Examples",
+			"item": [
+				{
+					"name": "English Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sessionId\": \"{{session_id}}\",\n  \"message\": \"What is the weather like today?\",\n  \"targetLang\": \"en\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/conversation/message",
+							"host": ["{{base_url}}"],
+							"path": ["api", "conversation", "message"]
+						},
+						"description": "Test English language response"
+					},
+					"response": []
+				},
+				{
+					"name": "French Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sessionId\": \"{{session_id}}\",\n  \"message\": \"Bonjour, comment allez-vous?\",\n  \"targetLang\": \"fr\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/conversation/message",
+							"host": ["{{base_url}}"],
+							"path": ["api", "conversation", "message"]
+						},
+						"description": "Test French language response"
+					},
+					"response": []
+				},
+				{
+					"name": "Spanish Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sessionId\": \"{{session_id}}\",\n  \"message\": \"Hola, ¿cómo estás?\",\n  \"targetLang\": \"es\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/conversation/message",
+							"host": ["{{base_url}}"],
+							"path": ["api", "conversation", "message"]
+						},
+						"description": "Test Spanish language response"
+					},
+					"response": []
+				},
+				{
+					"name": "Japanese Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sessionId\": \"{{session_id}}\",\n  \"message\": \"こんにちは、元気ですか？\",\n  \"targetLang\": \"ja\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/conversation/message",
+							"host": ["{{base_url}}"],
+							"path": ["api", "conversation", "message"]
+						},
+						"description": "Test Japanese language response"
+					},
+					"response": []
+				},
+				{
+					"name": "Arabic Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sessionId\": \"{{session_id}}\",\n  \"message\": \"مرحبا، كيف حالك؟\",\n  \"targetLang\": \"ar\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/conversation/message",
+							"host": ["{{base_url}}"],
+							"path": ["api", "conversation", "message"]
+						},
+						"description": "Test Arabic language response"
+					},
+					"response": []
+				}
+			],
+			"description": "Test different language endpoints"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [""]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [""]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8787",
+			"type": "string"
+		},
+		{
+			"key": "session_id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

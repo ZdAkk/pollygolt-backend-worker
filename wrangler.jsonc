@@ -7,6 +7,7 @@
 	"name": "pollygolt-backend-worker",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-10-14",
+	"compatibility_flags": ["nodejs_compat"],
 	"observability": {
 		"enabled": true
 	}
@@ -30,11 +31,13 @@
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
 	 */
+	// Secrets will be set via CLI: wrangler secret put SECRET_NAME
+	// Required secrets: OPENAI_API_KEY
 	/**
 	 * Static Assets
 	 * https://developers.cloudflare.com/workers/static-assets/binding/
 	 */
-	// "assets": { "directory": "./public/", "binding": "ASSETS" }
+	//"assets": { "directory": "./public/", "binding": "ASSETS" }
 	/**
 	 * Service Bindings (communicate between multiple Workers)
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
